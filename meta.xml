@@ -1,0 +1,7 @@
+<meta>
+    <script src="client.lua" type="client"/>
+    <script src="server.lua" type="server"/>
+    <file src="landscape.txd"/>
+
+    <min_mta_version client="1.5.4-9.11342"/>
+</meta>
