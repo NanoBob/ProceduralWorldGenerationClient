@@ -15,5 +15,5 @@ client.lua contains some configurable variables, these are:
 The resource contains two commands:
 - /generate  
   Starts procedural generation
-- /generatewarp
+- /warpgenerate  
   Warps you into a vehicle on the procedurally generated map
