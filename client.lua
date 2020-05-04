@@ -43,12 +43,7 @@ function placeModel(x, y)
             local col = engineLoadCOL(data)
             engineReplaceCOL(col, model)
 
-            local file = fileCreate(fileName .. ".col")
-            fileWrite(file, data)
-            fileClose(file)
-
-            outputChatBox("Downloaded .col")
-            
+            outputChatBox("Downloaded .col")           
             
             fetchRemote(baseUrl .. "getDff", {
                 postData = json
