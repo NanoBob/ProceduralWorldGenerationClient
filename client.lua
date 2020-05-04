@@ -126,12 +126,12 @@ local vegetationOptions = {
 
 
 
-local baseUrl = "http://localhost:7071/api/" --"http://renderwaremodelgenerator.azurewebsites.net/api/"
+local baseUrl = "http://renderwaremodelgenerator.azurewebsites.net/api/"
 
 local generationTimer
 
 function requestDomains()
-    requestBrowserDomains({ "localhost:7071", "renderwaremodelgenerator.azurewebsites.net" })
+    requestBrowserDomains({ "renderwaremodelgenerator.azurewebsites.net" })
 end
 requestDomains()
 
