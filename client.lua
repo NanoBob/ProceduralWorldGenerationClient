@@ -1,6 +1,6 @@
 local models = {}
 local modelStart = 2059
-local heightOffset = 500
+local heightOffset = 150
 
 local seed = 1
 local width = 400
@@ -181,12 +181,6 @@ function placeModel(x, y)
                     local object = createObject(model, x, y, heightOffset)
                     local lod = createObject(model, x, y, heightOffset, 0, 0, 0, true)
                     setLowLODElement(object, lod)
-                    createWater(
-                        x, y, heightOffset + waterHeight * heightMultiplier, 
-                        x + width, y, heightOffset + waterHeight * heightMultiplier, 
-                        x, y + height, heightOffset + waterHeight * heightMultiplier, 
-                        x + width, y + height, heightOffset + waterHeight * heightMultiplier
-                    )
 
                     placeVegetation(x, y, options)
                 else
@@ -258,8 +252,20 @@ function startGenerating()
     engineSetAsynchronousLoading(false, true)
     generationTimer = setTimer(checkGeneration, 1000, 0)
 
+    for i=550,20000 do
+        removeWorldModel(i,10000,0,0,0)
+    end
+    setOcclusionsEnabled(false)  -- Also disable occlusions when removing certain models
+    
+    createWater(
+        -2998, -2998, heightOffset + waterHeight * heightMultiplier, 
+        2998, -2998, heightOffset + waterHeight * heightMultiplier, 
+        -2998, 2998, heightOffset + waterHeight * heightMultiplier, 
+        2998, 2998, heightOffset + waterHeight * heightMultiplier
+    )
+
     setCloudsEnabled(false)
-    setFogDistance(1000)
-    setFarClipDistance(1000)
+    -- setFogDistance(1000)
+    -- setFarClipDistance(1000)
 end
 addCommandHandler("generate", startGenerating)
