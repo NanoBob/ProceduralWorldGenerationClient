@@ -83,6 +83,10 @@ function checkGeneration()
     end
 end
 
+function stopGenerating()
+    generatingPlayers[source] = nil
+end
+
 function startGenerating(player)
     setElementPosition(player, 0, 0, 320)
     local vehicle = createVehicle(495, 0, 0, 320)
@@ -90,6 +94,8 @@ function startGenerating(player)
     warpPedIntoVehicle(player, vehicle)
     generatingPlayers[player] = {}
     checkGenerationForPlayer(player)
+
+    addEventHandler("onPlayerQuit", player, stopGenerating)
 end
 addCommandHandler("generate", startGenerating)
 
