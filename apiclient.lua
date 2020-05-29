@@ -2,7 +2,7 @@ local storageBaseUrl = "https://renderwaremodelgenerator.blob.core.windows.net/o
 -- local storageBaseUrl = "http://127.0.0.1:10000/devstoreaccount1/output/"
 
 local apiBaseUrl = "http://renderwaremodelgenerator.azurewebsites.net/api/"
-local apiBaseUrl = "http://renderwaremodelgenerator-development.azurewebsites.net/api/"
+-- local apiBaseUrl = "http://renderwaremodelgenerator-development.azurewebsites.net/api/"
 -- local apiBaseUrl = "http://localhost:7071/api/" 
 
 if (triggerServerEvent) then
