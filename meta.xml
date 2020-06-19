@@ -1,6 +1,6 @@
 <meta>
     <script src="configuration.lua" type="shared"/>
-    <script src="apiClient.lua" type="shared"/>
+    <script src="apiclient.lua" type="shared"/>
 
     <script src="client.lua" type="client"/>
     <script src="server.lua" type="server"/>
