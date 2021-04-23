@@ -1,17 +1,20 @@
 local function getFileBase64(filepath)
-    local file = fileOpen(filepath)
-    local content = fileRead(file, fileGetSize(file))
-    fileClose(file)
+    if (triggerClientEvent) then
+        local file = fileOpen(filepath)
+        local content = fileRead(file, fileGetSize(file))
+        fileClose(file)
 
-    local base64 = base64Encode(content)
+        local base64 = base64Encode(content)
 
-    local segments = {}
-    while (base64:len() > 65535) do
-        segments[#segments + 1] = base64:sub(1, 65535)
-        base64 = base64:sub(65535 + 1)
+        local segments = {}
+        while (base64:len() > 65535) do
+            segments[#segments + 1] = base64:sub(1, 65535)
+            base64 = base64:sub(65535 + 1)
+        end
+        segments[#segments + 1] = base64
+        return segments
     end
-    segments[#segments + 1] = base64
-    return segments
+    return {}
 end
 
 chunkRange = 2
@@ -28,7 +31,7 @@ terrainConfiguration = {
         Lacunarity = 2.0,
         Gain = 0.4,
         Frequency = 0.001,
-        HeightMultiplier = 500
+        HeightMultiplier = 100
     },
     Texture = {
         Width = 1280,
